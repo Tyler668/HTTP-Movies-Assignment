@@ -36,6 +36,7 @@ export const MovieForm = (props) => {
 
     return (
         <div className='movie-form-container'>
+            <h1>Change Something!</h1>
             <form onSubmit={handleSubmit} className='movie-form'>
                 <input
                     type='text'

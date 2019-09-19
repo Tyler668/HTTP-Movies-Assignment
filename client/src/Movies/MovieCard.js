@@ -1,7 +1,9 @@
 import React from 'react';
+import { Route, NavLink, withRouter } from 'react-router-dom';
+
 
 const MovieCard = props => {
-  const { title, director, metascore, stars } = props.movie;
+  const { id, title, director, metascore, stars } = props.movie;
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -18,6 +20,11 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+      <NavLink to={`/update-movie/${id}`}>
+        <div className="change-button" >
+          Change
+        </div>
+      </NavLink>
     </div>
   );
 };
