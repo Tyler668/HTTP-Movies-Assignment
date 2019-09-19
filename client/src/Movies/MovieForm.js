@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 
 const initialMovie = {
@@ -18,8 +19,6 @@ export const MovieForm = (props) => {
     const { match, movies } = props;
     useEffect(() => {
         const id = match.params.id;
-        console.log('id:', id);
-        console.log(movies[4]);
         const movieToUpdate = movies.find(item => `${item.id}` === id);
         if (movieToUpdate) {
             console.log('Updating Movie:', movieToUpdate);
@@ -45,7 +44,7 @@ export const MovieForm = (props) => {
             .then(res => {
                 console.log(res)
                 setMovie(initialMovie)
-
+                props.history.push('/')
             })
             .catch(err => { console.log(err) })
     }
@@ -87,9 +86,11 @@ export const MovieForm = (props) => {
                     value={movie.stars}
                 />
 
-                <button
-                    type='submit'
-                >Update!</button>
+                
+                    <button
+                        type='submit'
+                    >Update!</button>
+               
 
             </form>
         </div>

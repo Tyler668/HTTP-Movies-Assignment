@@ -24,16 +24,32 @@ const App = () => {
     setSavedList([...savedList, movie]);
   };
 
+  const deleteMovie =(movie) => {
+    // e.preventDefault()
+
+    axios
+      .delete(`http://localhost:5000/api/movies/${movie.id}`)
+      .then(res => {
+        // setMovies(movie)
+        console.log(res)
+       
+      })
+      .catch(err => console.log(err))
+
+  }
 
 
   return (
     <>
       <SavedList list={savedList} />
-      <Route exact path="/" component={MovieList} />
+      <Route exact path="/" render={props => {
+          return <MovieList {...props} deleteMovie = {deleteMovie}/>;
+        }}
+         />
       <Route
         path="/movies/:id"
         render={props => {
-          return <Movie {...props} addToSavedList={addToSavedList} />;
+          return <Movie {...props} addToSavedList={addToSavedList} deleteMovie = {deleteMovie}/>;
         }}
       />
       <Route path="/update-movie/:id" render={props => (
