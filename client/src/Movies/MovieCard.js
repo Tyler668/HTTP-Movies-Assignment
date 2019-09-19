@@ -1,7 +1,15 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 
 const MovieCard = props => {
-  const { title, director, metascore, stars } = props.movie;
+  const { id, title, director, metascore, stars } = props.movie;
+  console.log('Stars', stars)
+  console.log('Movie ID to be deleted',id)
+
+  
+
   return (
     <div className="movie-card">
       <h2>{title}</h2>
@@ -18,6 +26,15 @@ const MovieCard = props => {
           {star}
         </div>
       ))}
+
+      <NavLink to={`/update-movie/${id}`}>
+        <div className="change-button" >
+          Edit Information
+        </div>
+      </NavLink>
+
+
+
     </div>
   );
 };
