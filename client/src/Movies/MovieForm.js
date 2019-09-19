@@ -15,6 +15,17 @@ export const MovieForm = (props) => {
     const [movie, setMovie] = useState(initialMovie);
 
 
+    const { match, movies } = props;
+    useEffect(() => {
+      const id = match.params.id;
+      const itemToUpdate = movies.find(item => `${item.id}` === id);
+      if (itemToUpdate) {
+        console.log(itemToUpdate);
+        setMovie(itemToUpdate);
+      }
+    }, [match, movies]);
+
+
     const changeHandler = (ev) => {
         ev.persist();
         let value = ev.target.value;
@@ -28,8 +39,13 @@ export const MovieForm = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .put(`http://localhost:5000/movies/${movie.id}`)
-            .then(res => { console.log(res) })
+            .put(`http://localhost:5000/api/movies/${movie.id}`)
+            .then(res => { 
+                console.log(res) 
+                setMovie(initialMovie)
+
+                // props.setMovie
+            })
             .catch(err => { console.log(err) })
     }
 
