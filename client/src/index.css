@@ -6,7 +6,7 @@ body {
 }
 
 .movie-card {
-  background-color: #fff;
+  background-color: rgb(123, 207, 255);
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -14,6 +14,9 @@ body {
   cursor: pointer;
   position: relative;
   margin: 1rem auto;
+  color: darkblue;
+  text-shadow: 1px 10px 10px rgb(46, 101, 219);
+  text-align: center;
 }
 
 .movie-director {
@@ -59,7 +62,7 @@ body {
   right: 25px;
   border: 1px solid grey;
   padding: 5px 10px;
-  background-color: lightseagreen;
+  background-color: whitesmoke;
 }
 .change-button {
   position: absolute;
@@ -67,16 +70,16 @@ body {
   right: 25px;
   border: 1px solid grey;
   padding: 5px 10px;
-  background-color: lightseagreen;
+  background-color: whitesmoke;
 }
 
 .delete-button {
   position: absolute;
-  top: 110px;
+  top: 95px;
   right: 25px;
   border: 1px solid grey;
   padding: 5px 10px;
-  background-color: lightseagreen;
+  background-color: whitesmoke;
 }
 
 .save-button:hover {
@@ -84,6 +87,14 @@ body {
   color: white;
 }
 
+.change-button:hover {
+  background-color: green;
+  color: white;
+}
+.delete-button:hover {
+  background-color: green;
+  color: white;
+}
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
@@ -104,4 +115,14 @@ form{
 
 .movie-form-container{
   text-align: center;
+}
+
+.delete-button{
+  cursor: pointer;
+}
+
+.save-button, .change-button, .delete-button{
+  border: none;
+  border-radius: 20px;
+  text-shadow: none;
 }

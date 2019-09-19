@@ -25,12 +25,10 @@ const App = () => {
   };
 
   const deleteMovie =(movie) => {
-    // e.preventDefault()
-
     axios
       .delete(`http://localhost:5000/api/movies/${movie.id}`)
       .then(res => {
-        // setMovies(movie)
+        window.location ='/'
         console.log(res)
        
       })

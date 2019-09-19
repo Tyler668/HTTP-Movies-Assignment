@@ -28,7 +28,7 @@ export default class Movie extends React.Component {
         )
       .catch(err => console.log(err.response));
   };
-  
+
 
   saveMovie = () => {
     const addToSavedList = this.props.addToSavedList;
@@ -45,6 +45,9 @@ export default class Movie extends React.Component {
         <MovieCard movie={this.state.movie} deleteMovie = {this.props.deleteMovie}/>
         <div className="save-button" onClick={this.saveMovie}>
           Save
+        </div>
+        <div onClick = {() => this.props.deleteMovie(this.state.movie)} className="delete-button" >
+        Delete
         </div>
       </div>
     );

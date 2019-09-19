@@ -29,13 +29,10 @@ const MovieCard = props => {
 
       <NavLink to={`/update-movie/${id}`}>
         <div className="change-button" >
-          Change
+          Edit Information
         </div>
       </NavLink>
 
-      <div onClick = {() => props.deleteMovie(props.movie)} className="delete-button" >
-        Delete
-        </div>
 
 
     </div>
