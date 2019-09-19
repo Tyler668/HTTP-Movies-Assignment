@@ -67,8 +67,7 @@ export const MovieForm = (props) => {
 
                 <button
                     type='submit'
-
-                />
+                >Update!</button>
 
             </form>
         </div>
